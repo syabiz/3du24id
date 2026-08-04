@@ -609,14 +609,14 @@ function fL() {
     body.innerHTML =
       '<div id="warning" class="position-fixed top-0 end-0 bottom-0 start-0 d-flex justify-content-center align-items-center p-5 text-center bg-pattern bg-primary text-white entered"><div class="p-5 border border-2 border-primary-subtle rounded-xl shadow-xl bg-primary"><h4 class="fs-7">Activate Templates</h4><p class="fs-lg-2">Instalasi berhasil !! untuk mendapatkan kode lisensi silahkan <a id="generate-link" class="fw-bold text-yellow" href="#" target="_blank">klik disini</a>.</p><div id="warning-countdown" class="fs-8 lh-1">20</div></div></div>';
     var r =
-      "https://wa.me/628980440088?text=Generate+kode+lisensi+untuk+domain+ini+sekarang!%0A%0A" +
+      "https://wa.me/62816764457?text=Generate+kode+lisensi+untuk+domain+ini+sekarang!%0A%0A" +
       blogUrl.replace(/(^\w+:|^)\/\//, "").replace(/\/$/, "") +
       "+%0A%0A";
     doc.getElementById("generate-link").href = r;
     var c = doc.getElementById("warning-countdown");
     var i = setInterval(function () {
       if (c.textContent <= 0) {
-        win.location.href = "https://www.eduzaid.com";
+        win.location.href = "https://www.skooltheme.com";
         clearInterval(i);
       } else {
         c.textContent -= 1;
