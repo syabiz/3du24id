@@ -1352,60 +1352,76 @@ figure blockquote {
 
 /* --- FIX RESPONSIVE SLIDER SHORTCUT MOBILE --- */
 
-/* 1. Paksa container mengalir mulus ke samping di mobile */
-.slider-shortcut.slider-wrapper {
+/* ==========================================
+   FIX MOBILE RESPONSIVE SHORTCUT SLIDER
+   ========================================== */
+
+/* 1. Paksa Container Utama Jadi Horizontal Scroll di Mobile */
+#shortcut-section.slider-wrapper,
+div.slider-shortcut.slider-wrapper {
   display: flex !important;
-  flex-wrap: nowrap !important;
-  overflow-x: auto !important;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* Scroll native halus di iOS */
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
+  flex-wrap: nowrap !important; /* Mencegah item melompat/turun ke bawah */
+  overflow-x: auto !important; /* Wajib horizontal scroll */
+  overflow-y: hidden !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 8px 4px !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important; /* Biar licin di iPhone */
+  scrollbar-width: none !important; /* Sembunyikan scrollbar Firefox */
+  -ms-overflow-style: none !important;
 }
 
-/* 2. Atur ukuran tiap tombol shortcut di mobile agar presisi */
-.slider-shortcut .slider-inner {
-  flex: 0 0 calc(100% / 3.5) !important; /* Menampilkan 3.5 item di layar HP (sangat pas) */
-  max-width: 100px !important; /* Batas lebar maksimum agar tidak kegedean di layar sedang */
+#shortcut-section.slider-wrapper::-webkit-scrollbar {
+  display: none !important; /* Sembunyikan scrollbar Chrome/Safari */
+}
+
+/* 2. Paksa Setiap Kartu Shortcut Memiliki Ukuran Pas di Mobile */
+#shortcut-section .slider-inner,
+div.slider-shortcut .slider-inner {
+  flex: 0 0 28% !important; /* Menampilkan ~3.5 item di HP */
+  min-width: 85px !important;
+  max-width: 100px !important;
   padding: 4px !important;
+  box-sizing: border-box !important;
 }
 
-/* 3. Penyesuaian tampilan item shortcut di dalam */
-.slider-shortcut .slider-item {
+/* 3. Rapikan Isi Dalam Kartu (Icon & Teks) */
+#shortcut-section .slider-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  text-align: center;
-  height: 100%;
-  padding: 0.75rem 0.5rem !important;
+  text-align: center !important;
+  padding: 10px 4px !important;
+  height: 100% !important;
 }
 
-.slider-shortcut .slider-item img {
-  width: 48px !important; /* Ukuran icon yang ideal untuk HP */
-  height: 48px !important;
+#shortcut-section .slider-item img {
+  width: 42px !important;
+  height: 42px !important;
+  object-fit: contain !important;
   margin: 0 auto 6px auto !important;
 }
 
-.slider-shortcut .slider-item p {
-  font-size: 0.75rem !important; /* Mencegah teks terpotong aneh */
-  margin-bottom: 0 !important;
+#shortcut-section .slider-item p {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
 }
 
-/* 4. Kembalikan ukuran untuk layar tablet/desktop */
-@media (min-width: 640px) {
-  .slider-shortcut .slider-inner {
-    flex: 0 0 calc(100% / 4) !important;
+/* 4. Kembalikan Tampilan untuk Tablet & Desktop */
+@media (min-width: 768px) {
+  #shortcut-section .slider-inner {
+    flex: 0 0 16.66% !important; /* 6 item di tablet */
     max-width: none !important;
   }
 }
-@media (min-width: 1024px) {
-  .slider-shortcut .slider-inner {
-    flex: 0 0 calc(100% / 6) !important;
-  }
-}
+
 @media (min-width: 1280px) {
-  .slider-shortcut .slider-inner {
-    flex: 0 0 calc(100% / 8) !important;
+  #shortcut-section .slider-inner {
+    flex: 0 0 12.5% !important; /* 8 item di desktop */
   }
 }
