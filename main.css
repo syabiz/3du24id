@@ -1350,78 +1350,90 @@ figure blockquote {
   --ds-border-color: var(--ds-dark);
 }
 
-/* --- FIX RESPONSIVE SLIDER SHORTCUT MOBILE --- */
+/* ===================================================
+   OVERRIDE SLIDER SHORTCUT AGAR RESPONSIVE DI MOBILE
+   =================================================== */
 
-/* ==========================================
-   FIX MOBILE RESPONSIVE SHORTCUT SLIDER
-   ========================================== */
-
-/* 1. Paksa Container Utama Jadi Horizontal Scroll di Mobile */
-#shortcut-section.slider-wrapper,
-div.slider-shortcut.slider-wrapper {
+/* 1. Paksa Container Utama Menjadi Horizontal Scroll di Mobile */
+#shortcut-section,
+.slider-shortcut.slider-wrapper {
   display: flex !important;
-  flex-wrap: nowrap !important; /* Mencegah item melompat/turun ke bawah */
-  overflow-x: auto !important; /* Wajib horizontal scroll */
+  flex-direction: row !important;
+  flex-wrap: nowrap !important; /* Mencegah item melompat ke bawah */
+  overflow-x: auto !important; /* Aktifkan scroll ke samping */
   overflow-y: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding: 8px 4px !important;
+  padding: 10px 12px !important;
   scroll-behavior: smooth !important;
-  -webkit-overflow-scrolling: touch !important; /* Biar licin di iPhone */
-  scrollbar-width: none !important; /* Sembunyikan scrollbar Firefox */
+  -webkit-overflow-scrolling: touch !important; /* Smooth scroll di iOS */
+  scrollbar-width: none !important; /* Sembunyikan scrollbar di Firefox */
   -ms-overflow-style: none !important;
 }
 
-#shortcut-section.slider-wrapper::-webkit-scrollbar {
-  display: none !important; /* Sembunyikan scrollbar Chrome/Safari */
+#shortcut-section::-webkit-scrollbar,
+.slider-shortcut.slider-wrapper::-webkit-scrollbar {
+  display: none !important; /* Sembunyikan scrollbar di Chrome/Safari */
 }
 
-/* 2. Paksa Setiap Kartu Shortcut Memiliki Ukuran Pas di Mobile */
+/* 2. Kunci Lebar Tiap Widget/Item Shortcut di Mobile */
 #shortcut-section .slider-inner,
-div.slider-shortcut .slider-inner {
-  flex: 0 0 28% !important; /* Menampilkan ~3.5 item di HP */
+.slider-shortcut .slider-inner {
+  flex: 0 0 28% !important; /* Menampilkan sekitar 3.5 item di layar HP */
   min-width: 85px !important;
-  max-width: 100px !important;
+  max-width: 105px !important;
+  width: auto !important;
   padding: 4px !important;
   box-sizing: border-box !important;
 }
 
-/* 3. Rapikan Isi Dalam Kartu (Icon & Teks) */
-#shortcut-section .slider-item {
+/* 3. Atur Tampilan Tombol/Ikon & Teks */
+#shortcut-section .slider-item,
+.slider-shortcut .slider-item {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  padding: 10px 4px !important;
+  padding: 12px 6px !important;
   height: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-#shortcut-section .slider-item img {
-  width: 42px !important;
-  height: 42px !important;
-  object-fit: contain !important;
+#shortcut-section .slider-item img,
+.slider-shortcut .slider-item img {
+  width: 44px !important;
+  height: 44px !important;
   margin: 0 auto 6px auto !important;
+  object-fit: contain !important;
 }
 
-#shortcut-section .slider-item p {
+#shortcut-section .slider-item p,
+.slider-shortcut .slider-item p {
   font-size: 11px !important;
   line-height: 1.2 !important;
   margin: 0 !important;
+  text-align: center !important;
   white-space: normal !important;
-  word-break: break-word !important;
 }
 
-/* 4. Kembalikan Tampilan untuk Tablet & Desktop */
+/* 4. Penyesuaian Tampilan untuk Layar Lebih Besar (Tablet & Desktop) */
 @media (min-width: 768px) {
-  #shortcut-section .slider-inner {
-    flex: 0 0 16.66% !important; /* 6 item di tablet */
+  #shortcut-section .slider-inner,
+  .slider-shortcut .slider-inner {
+    flex: 0 0 calc(100% / 6) !important;
     max-width: none !important;
   }
 }
 
 @media (min-width: 1280px) {
-  #shortcut-section .slider-inner {
-    flex: 0 0 12.5% !important; /* 8 item di desktop */
+  #shortcut-section .slider-inner,
+  .slider-shortcut .slider-inner {
+    flex: 0 0 calc(100% / 8) !important;
+    max-width: none !important;
   }
 }
