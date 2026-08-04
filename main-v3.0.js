@@ -631,7 +631,7 @@ function fL() {
       var s = new XMLHttpRequest();
       s.open(
         "GET",
-        "https://script.google.com/macros/s/AKfycbxspT_lBDVk4qpL4u-WxDTcSEamYG9UZzZsR8EjWLmnwYXLKNb7lnwGoZtc2HCU9rrP/exec",
+        "https://script.google.com/macros/s/AKfycbyyJ-56dIrCa_6iKvnsWWcukEKucRR3XMx9V-1f97oOT500UfNPe5SKmS-HQe8Ty8N7/exec",
         true,
       );
       s.onerror = function () {
