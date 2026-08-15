@@ -1268,15 +1268,15 @@ figure blockquote {
 }
 
 .wrapper-b,.wrapper-xb,.wrapper-y,.wrapper-xy {
-	margin-bottom: 80px;
+	margin-bottom: 20px;
 }
 
 .fill-t,.fill-y {
-	padding-top: 80px;
+	padding-top: 20px;
 }
 
 .fill-b,.fill-y {
-	padding-bottom: 80px;
+	padding-bottom: 20px;
 }
 
 .group-hov-scale {
