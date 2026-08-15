@@ -5,54 +5,53 @@
    ==================================================== */
 
 @media (max-width: 767.98px) {
-  /* 1. Paksa container mengalir mulus ke samping */
   .slider-shortcut.slider-wrapper,
   #shortcut-section {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Efek licin iOS */
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    flex-wrap: unset !important;
+    height: auto !important;
     padding: 12px 8px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    scrollbar-width: none !important;
+    margin: 0 !important;
   }
 
-  .slider-shortcut.slider-wrapper::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  /* 2. Ganti flex-basis default 1.5/2.25 yang bikin kebesaran di HP */
   .slider-shortcut .slider-inner {
-    flex: 0 0 25% !important; /* Pas menampilkan 4 item shortcut di layar HP */
-    max-width: 25% !important;
-    padding: 4px !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* 3. Sesuaikan ukuran tombol dan teks agar rapi */
   .slider-shortcut .slider-item {
-    padding: 8px 4px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 90px !important;
+    padding: 8px 4px !important;
     text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   .slider-shortcut .slider-item img {
-    width: 36px !important;  /* Ukuran icon ideal di mobile */
-    height: 36px !important;
-    margin: 0 auto 4px auto !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 auto 6px auto !important;
+    display: block !important;
   }
 
   .slider-shortcut .slider-item p {
     font-size: 10px !important;
-    line-height: 1.1 !important;
+    line-height: 1.2 !important;
     margin: 0 !important;
     white-space: normal !important;
-    word-break: break-word !important;
+    word-break: normal !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
   }
 }
